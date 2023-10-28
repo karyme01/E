@@ -105,6 +105,79 @@
                             <p id="diseño">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Diseño</h1>
                             <p class="fs-6 mb-4">Los diseños fueron sacados de los ejemplos proporcionados por el profesor</p>
+                           
+                            <p class="fs-6 mb-4">Pantalla OLED</p>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/OLED.mp4" type="video/mp4">
+                            </video></p></figure>
+                            <p class="fs-6 mb-4">#include <TinyWireM.h>
+                                #include <Tiny4kOLED.h>
+                                 
+                                  int c=0;
+                                void prepareDisplay() {
+                                  oled.clear();
+                                  oled.begin();
+                                  oled.setCursor(5,1);
+                                  oled.print(("fondo falso"));
+                                  oled.setCursor(5,3);
+                                  oled.print((":)");
+                                }
+                                 
+                                 
+                                 
+                                void setup() {
+                                  pinMode(3, INPUT);
+                                  int c=0;
+                                  oled.begin(128, 64, sizeof(tiny4koled_init_128x64br), tiny4koled_init_128x64br);
+                                 //oled.setRotation(0);
+                                 // Two fonts are supplied with this library, FONT8X16 and FONT6X8
+                                 // To clear all the memory
+                                    oled.clear();
+                                    oled.on();
+                                    prepareDisplay();
+                                    oled.setFont(FONT8X16);  
+                                }
+                                 
+                                void loop() {
+                                  if(digitalRead(3)==HIGH && c==0){
+                                  oled.clear();
+                                  oled.begin();
+                                  oled.setCursor(5,1);
+                                  oled.print(("hola Huber"));
+                                  oled.setCursor(5,3);
+                                  c=c+1;
+                                  delay(500);
+                                  }
+                                 
+                                  if(digitalRead(3)==HIGH && c==1){
+                                  oled.clear();
+                                  oled.begin();
+                                  oled.setCursor(5,1);
+                                  oled.print(("como estas"));
+                                  oled.setCursor(5,3);
+                                  c=c+1;
+                                  delay(500);
+                                  }
+                                 
+                                  if(digitalRead(3)==HIGH && c==2){
+                                  oled.clear();
+                                  oled.begin();
+                                  oled.setCursor(5,1);
+                                  oled.print((":)");
+                                  oled.setCursor(5,3);
+                                  c=c+1;
+                                  delay(500);
+                                  }
+                                 
+                                  if(digitalRead(3)==HIGH && c==3){
+                                  oled.clear();
+                                  oled.begin();
+                                  c=0;
+                                  delay(500);
+                                  }
+                                 
+                                 
+                                }</p>
 
                         <p id="Resultados">
                             <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
